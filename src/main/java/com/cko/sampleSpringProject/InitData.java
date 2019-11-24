@@ -1,6 +1,8 @@
 package com.cko.sampleSpringProject;
 
+import com.cko.sampleSpringProject.dao.FilmDAO;
 import com.cko.sampleSpringProject.model.Authority;
+import com.cko.sampleSpringProject.model.Film;
 import com.cko.sampleSpringProject.model.User;
 import com.cko.sampleSpringProject.service.AuthorityService;
 import com.cko.sampleSpringProject.service.SMSCService;
@@ -26,11 +28,15 @@ public class InitData {
     SMSCService smscSender;
 
     @Autowired
+    FilmDAO filmDAO;
+
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public void initData() {
 
-//        smscSender.send_sms("89775548911","TEST MESSAGE",1, "", "", 0, "", "");
+        Film film = new Film("Rosomaha",9,18);
+        filmDAO.save(film);
         initUserAndRoles();
 
 
