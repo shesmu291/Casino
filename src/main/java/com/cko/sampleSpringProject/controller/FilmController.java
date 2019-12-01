@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.Optional;
+import java.util.List;
 
 @Controller
 @RequestMapping("/film")
@@ -24,8 +25,13 @@ public class FilmController {
     SMSCService smscService;
 
     @GetMapping("/all")
-    public String showDefaultMap() {
-        return "allFilms";
+    public ModelAndView showAllFilms() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("allFilms");
+        List<Film> filmsList = filmDAO.findAll();
+        modelAndView.addObject("films", filmsList);
+
+        return modelAndView;
     }
 
     @GetMapping("/newFilm")
@@ -47,11 +53,17 @@ public class FilmController {
         modelAndView.setViewName("editFilm");
         return modelAndView;
     }
-    @PostMapping("/editFilm")
-    public String editFilm(Film film) {
-        filmDAO.save(film);
 
-        return "allFilms";
+    @PostMapping("/editFilm")
+    public RedirectView editFilm(Film film) {
+        filmDAO.save(film);
+        return new RedirectView("/film/all");
+    }
+
+    @GetMapping("/deleteFilm")
+    public RedirectView deleteFilm(@RequestParam Long id) {
+        filmDAO.deleteById(id);
+        return new RedirectView("/film/all");
     }
 
 
