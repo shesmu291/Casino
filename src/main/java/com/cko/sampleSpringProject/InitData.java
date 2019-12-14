@@ -40,14 +40,15 @@ public class InitData {
         initFilms();
         initUserAndRoles();
     }
+
     private void initFilms() {
         for (int i = 0; i < 10; i++) {
-            Film film = new Film(faker.superhero().name(),i,i*2);
+            Film film = new Film(faker.superhero().name(), i, i * 2);
             filmDAO.save(film);
         }
     }
 
-    private void initUserAndRoles(){
+    private void initUserAndRoles() {
         Authority adminAuthority = new Authority("ROLE_ADMIN");
         Authority userAuthority = new Authority("ROLE_USER");
         authorityService.insert(adminAuthority);
@@ -55,7 +56,12 @@ public class InitData {
 
         List<Authority> authorities = new ArrayList<Authority>();
         authorities.add(adminAuthority);
-        userService.insert(new User("1@mail.ru",bCryptPasswordEncoder.encode("1"), authorities));
+
+        for (int i = 0; i < 10; i++) {
+            userService.insert(new User(i+"@mail.ru", bCryptPasswordEncoder.encode(String.valueOf(i)), authorities));
+        }
+
+
 
 
     }

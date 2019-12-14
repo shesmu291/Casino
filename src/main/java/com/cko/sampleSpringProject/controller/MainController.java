@@ -20,5 +20,10 @@ public class MainController {
         return "mainPage";
     }
 
+    @GetMapping("/test")
+    public String showTestPage(){
+        return "test";
+    }
+
 
 }
