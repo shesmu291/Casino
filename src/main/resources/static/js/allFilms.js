@@ -35,7 +35,7 @@ $(document).ready(function () {
                     "<td>"+ films[i].age +"</td>" +
                     "<td>" +
                     "            <a class=\"btn btn-primary\" href=\"/film/editFilm?id="+  films[i].id  +"\"  >Редактировать</a>" +
-                    "            <a class=\"btn btn-danger\"  >Удалять</a>" +
+                    "            <a class=\"btn btn-danger\" href=\"/film/deleteFilm?id="+  films[i].id  +"\"  >Удалить</a>" +
                     "        </td>"+
                     "</tr>")
             }
