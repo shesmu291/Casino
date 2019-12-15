@@ -29,14 +29,14 @@ $(document).ready(function () {
             for (var i = 0; i < films.length; i++) {
                 $("#forAdd").before(
                     "<tr>" +
-                    "<td>"+ films[i].id +"</td>" +
-                    "<td>"+ films[i].title +"</td>" +
-                    "<td>"+ films[i].rating +"</td>" +
-                    "<td>"+ films[i].age +"</td>" +
+                    "<td>" + films[i].id + "</td>" +
+                    "<td>" + films[i].title + "</td>" +
+                    "<td>" + films[i].rating + "</td>" +
+                    "<td>" + films[i].age + "</td>" +
                     "<td>" +
-                    "            <a class=\"btn btn-primary\" href=\"/film/editFilm?id="+  films[i].id  +"\"  >Редактировать</a>" +
-                    "            <a class=\"btn btn-danger\" href=\"/film/deleteFilm?id="+  films[i].id  +"\"  >Удалить</a>" +
-                    "        </td>"+
+                    "            <a class=\"btn btn-primary\" href=\"/film/editFilm?id=" + films[i].id + "\"  >Редактировать</a>" +
+                    "            <a class=\"btn btn-danger\" href=\"/film/deleteFilm?id=" + films[i].id + "\"  >Удалить</a>" +
+                    "        </td>" +
                     "</tr>")
             }
 

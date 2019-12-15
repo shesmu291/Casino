@@ -25,5 +25,7 @@ public class MainController {
         return "test";
     }
 
+    @GetMapping("/productsPage")
+    public String showProductsPage() { return "productsPage"; }
 
 }
