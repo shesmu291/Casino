@@ -44,7 +44,11 @@ public class FilmController {
         filmDAO.save(film);
         return "allFilms";
     }
-
+    @PostMapping("/newUser")//
+    public String addNewUser(Film film) {
+        filmDAO.save(film);
+        return "allFilms";
+    }
     @GetMapping("/editFilm")
     public ModelAndView showEditFilmPage(@RequestParam Long id) {
         ModelAndView modelAndView = new ModelAndView();
