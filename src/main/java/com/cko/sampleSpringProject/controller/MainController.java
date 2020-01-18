@@ -15,6 +15,11 @@ public class MainController {
         return "login";
     }
 
+    @GetMapping("/profilePage")
+    public String showProfilePage(){
+
+        return "login";
+    }
     @GetMapping("/")
     public String showMainPage(){
         return "mainPage";
