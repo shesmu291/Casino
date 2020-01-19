@@ -29,19 +29,22 @@ function getColor(item, maxitem) {
   for(var j = 0; j < options.length; j++) {
       if(options[j] == 0) {
           red   = 60;
-          green = 220;
+          green = 190;
           blue  = 60;
+          return RGB2Color(red,green,blue);
       }
       if(options[j] % 2 == 0) {
           red   = 60;
           green = 60;
           blue  = 60;
+          return RGB2Color(red,green,blue);
       }
       if(options[j] % 2 != 0) {
           
-          red = 220;
-          green = 60;
-          blue  = 60;
+          red = 255;
+          green = 100;
+          blue  = 100;
+          return RGB2Color(red,green,blue);
       }
       
   }
